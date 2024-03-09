@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../screens/pet_details.dart';
+
 /// Pet Grid List
 class PetGridList extends StatelessWidget {
   final List<PetData> pets;
@@ -31,88 +33,98 @@ class PetGridTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(12),
-      margin: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        color: Colors.red,
-        gradient: const LinearGradient(
-          colors: [
-            Colors.black12,
-            Colors.black54,
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomCenter,
-        ),
-        borderRadius: BorderRadius.circular(14),
-        image: DecorationImage(
-          image: AssetImage(pet.imageUrl),
-          fit: BoxFit.contain,
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          // name
-          Text(
-            pet.name,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-            ),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => PetDetailsScreen(pet: pet),
           ),
-
-          // breed
-          Text(
-            pet.breed,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 12,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 4),
-
-          // gender and age
-          Row(
-            children: [
-              // gender icon
-              Icon(
-                pet.isGenderMale ? Icons.male : Icons.female,
-                size: 16,
-                color: Colors.white,
-              ),
-              const SizedBox(width: 4),
-              Text(
-                pet.isGenderMale ? 'Boy' : 'Girl',
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-
-              const Spacer(),
-
-              const Icon(
-                Icons.access_time_outlined,
-                size: 16,
-                color: Colors.white,
-              ),
-              const SizedBox(width: 4),
-              Text(
-                pet.age,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.all(12),
+        margin: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: Colors.red,
+          gradient: const LinearGradient(
+            colors: [
+              Colors.black12,
+              Colors.black54,
             ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomCenter,
           ),
-        ],
+          borderRadius: BorderRadius.circular(14),
+          image: DecorationImage(
+            image: AssetImage(pet.imageUrl),
+            fit: BoxFit.contain,
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            // name
+            Text(
+              pet.name,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            // breed
+            Text(
+              pet.breed,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 4),
+
+            // gender and age
+            Row(
+              children: [
+                // gender icon
+                Icon(
+                  pet.isGenderMale ? Icons.male : Icons.female,
+                  size: 16,
+                  color: Colors.white,
+                ),
+                const SizedBox(width: 4),
+                Text(
+                  pet.isGenderMale ? 'Boy' : 'Girl',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                const Spacer(),
+
+                const Icon(
+                  Icons.access_time_outlined,
+                  size: 16,
+                  color: Colors.white,
+                ),
+                const SizedBox(width: 4),
+                Text(
+                  pet.age,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
