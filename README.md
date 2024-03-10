@@ -11,6 +11,7 @@ Welcome to the repository for our Pet Adoption App, a journey we're documenting 
 Dive into the development process through our live coding series on YouTube. Each episode brings you closer to how we're building the Pet Adoption App, one line of code at a time.
 
 - **Episode 1:** [Flutter Pet Adoption App: Live Coding #1 | Raw & Real](https://youtu.be/wvPf79lRgwg?si=ASis65g9kftA_mzT)
+- **Episode 2:** [Flutter Pet Adoption App: Live Coding #2 | Raw & Real](https://youtu.be/Vs76_2EVgLE)
 
 - Subscribe to our [YouTube Channel](https://www.youtube.com/@sutechsdev) for more episodes and videos.
 
